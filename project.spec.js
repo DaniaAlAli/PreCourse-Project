@@ -16,9 +16,7 @@ import {
   isUpperCase,
   elementInArray,
   reverseString,
-} from "./assessment";
-
-import { generateIntegersArray, noZeroes } from "./debug-assessment";
+} from "./project";
 
 describe("sumOdds(numbers)", () => {
   test("returns the sum of only the ODD numbers.", () => {
@@ -116,7 +114,7 @@ describe("reverseString(string)", () => {
     expect(reverseString(string)).toEqual(reversed);
   });
 });
-
+import { generateIntegersArray, noZeroes } from "./debug-project";
 describe("generateIntegersArray(firstNumber, lastNumber)", () => {
   test("returns an array of numbers between the two numbers passed as parameters.", () => {
     const firstNumber = 4;

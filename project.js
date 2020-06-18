@@ -19,7 +19,13 @@
  * sumOdds([3, 7, 8, 15, 2, 1, 13]) -> 39
  */
 function sumOdds(numbers) {
-  // Your code here
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 !== 0) {
+      sum = sum + numbers[i];
+    }
+  }
+  return sum;
 }
 
 /**
@@ -35,7 +41,15 @@ function sumOdds(numbers) {
  * Hint: Use string methods to make it case-insensitive
  */
 function characterCount(string, c) {
-  // Your code here
+  let count = 0;
+  let str = string.toLowerCase();
+  c = c.toLowerCase();
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === c) {
+      count++;
+    }
+  }
+  return count;
 }
 
 /**
@@ -54,7 +68,15 @@ function characterCount(string, c) {
  * differences([11, 35, 52, 14, 56]) -> [24,  17, -38,  42]
  */
 function differences(numbers) {
-  // Your code here
+  const diff = [];
+  let sub = 0;
+  for (let i = 0; i < numbers.length - 1; i++) {
+    if (numbers[i + 1] !== "") {
+      sub = numbers[i + 1] - numbers[i];
+      diff.push(sub);
+    }
+  }
+  return diff;
 }
 
 /**
@@ -74,7 +96,19 @@ function differences(numbers) {
  * largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> 545
  */
 function largestIncrement(numbers) {
-  // Your code here
+  const diff = [];
+  let sub = 0;
+  let large = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i + 1] !== "") {
+      sub = numbers[i + 1] - numbers[i];
+      diff.push(sub);
+    }
+  }
+  for (let i = 0; i < diff.length; i++) {
+    if (large < diff[i]) large = diff[i];
+  }
+  return large;
 }
 
 /**
@@ -89,7 +123,11 @@ function largestIncrement(numbers) {
  * afterX([11, 35, 52, 14, 56, 601, 777, 888, 999], 52) -> [14, 56, 601, 777, 888, 999]
  */
 function afterX(numbers, x) {
-  // Your code here
+  for (let i = 0; i < numbers.length; i++) {
+    if (x === numbers[i]) {
+      return numbers.slice(i + 1, numbers.length);
+    }
+  }
 }
 
 /**
@@ -104,7 +142,19 @@ function afterX(numbers, x) {
  * Hint: Use string method .toUpperCase()
  */
 function abbreviate(firstName, lastName) {
-  // Your code here
+  let count1 = 0;
+  let count2 = 0;
+  for (let i = 0; i < firstName; i++) {
+    count1++;
+  }
+  const fr = firstName.slice(0, count1 + 1);
+
+  for (let i = 0; i < lastName; i++) {
+    count2++;
+  }
+  const ln = lastName.slice(0, count2 + 1);
+
+  return `${fr.toUpperCase()}${ln.toUpperCase()}`;
 }
 
 /**
@@ -118,7 +168,13 @@ function abbreviate(firstName, lastName) {
  *
  */
 function isUpperCase(string) {
-  // Your code here
+  let str = string.toUpperCase();
+  for (let i = 0; i < string.length; i++) {
+    if (str[i] === string[i]) {
+      continue;
+    } else return false;
+  }
+  return true;
 }
 
 /**
@@ -132,7 +188,12 @@ function isUpperCase(string) {
  *
  */
 function elementInArray(numbers, x) {
-  // Your code here
+  let check = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === x) check++;
+  }
+  if (check > 0) return true;
+  else return false;
 }
 
 /**
@@ -146,18 +207,22 @@ function elementInArray(numbers, x) {
  *
  */
 function reverseString(string) {
-  // Your code here
+  let rvrs = [];
+  for (let i = string.length - 1; i >= 0; i--) {
+    rvrs = rvrs + string[i];
+  }
+  return `${rvrs}`;
 }
 
-// console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
-// console.log(characterCount("Character Count is clever", "c"));
-// console.log(differences([11, 35, 52, 14, 56]));
-// console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
-// console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
-// console.log(abbreviate("miss", "Stephane"));
-// console.log(isUpperCase("JCREW"));
-// console.log(elementInArray([5, 6, 7], 8));
-// console.log(reverseString("CODED"));
+console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
+console.log(characterCount("Character Count is clever", "c"));
+console.log(differences([11, 35, 52, 14, 56]));
+console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
+console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+console.log(abbreviate("misssssssss", "Stephane"));
+console.log(isUpperCase("JCREWs"));
+console.log(elementInArray([5, 6, 7], 9));
+console.log(reverseString("CODED"));
 
 module.exports = {
   sumOdds,

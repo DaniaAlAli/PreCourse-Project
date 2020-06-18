@@ -1,24 +1,22 @@
-/**
- * generateIntegersArray(firstNumber, lastNumber):
+/* generateIntegersArray(firstNumber, lastNumber):
  * - receives two numbers
  * - returns an array with the integers between the two numbers
  *
  * e.g.
  * generateIntegersArray(2, 5) -> [2, 3, 4, 5]
- * generateIntegersArray(4, 9) -> [4, 5, 6, 7, 8, 9]
- *
- */
+ * generateIntegersArray(4, 9) -> [4, 5, 6, 7, 8, 9]*/
+
 function generateIntegersArray(firstNumber, lastNumber) {
   const integersArray = [];
-  whille (firstNumber < lastNumber)
+  while (firstNumber <= lastNumber) {
     integersArray.push(firstNumber);
-    lastNumber++;
+    firstNumber++;
+  }
 
-  return IntegersArray;
+  return integersArray;
 }
 
-/**
- * noZeroes(numberString):
+/* noZeroes(numberString):
  * - receives a number as a string
  * - removes any zeroes at the beginning and the end of the number string
  * - returns the resulting number string without zeroes at the beginning or the end
@@ -29,18 +27,19 @@ function generateIntegersArray(firstNumber, lastNumber) {
  *
  */
 function noZeroes(numberString) {
-  whil (numberString.startsWith("0")) {
-    numberString.slice(0, -1);
+  while (numberString.startsWith("0")) {
+    numberString = numberString.slice(1);
   }
 
-  while (numberString.endswith("0") {
-    numberString.slice[1];
+  while (numberString.endsWith("0")) {
+    numberString = numberString.slice(0, -1);
   }
-  numberString;
+  return numberString;
 }
 
-// console.log(generateIntegersArray(3, 7));
-// console.log(noZeroes("001100"));
+console.log(generateIntegersArray(3, 7));
+console.log(noZeroes("00001100"));
+
 module.exports = {
   generateIntegersArray,
   noZeroes,
